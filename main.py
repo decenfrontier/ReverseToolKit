@@ -1,4 +1,3 @@
-# 获取 APPDATA 环境变量对应的路径
 import sys
 from PySide2.QtWidgets import QApplication
 from PySide2.QtCore import Qt
