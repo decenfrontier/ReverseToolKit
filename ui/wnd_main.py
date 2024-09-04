@@ -17,11 +17,28 @@ class Ui_WndMain(object):
     def setupUi(self, WndMain):
         if not WndMain.objectName():
             WndMain.setObjectName(u"WndMain")
-        WndMain.resize(299, 264)
+        WndMain.resize(303, 290)
         self.centralwidget = QWidget(WndMain)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.btn_attach = QToolButton(self.centralwidget)
+        self.btn_attach.setObjectName(u"btn_attach")
+        self.btn_attach.setMinimumSize(QSize(45, 35))
+        self.btn_attach.setMaximumSize(QSize(45, 35))
+
+        self.horizontalLayout_7.addWidget(self.btn_attach)
+
+        self.label_7 = QLabel(self.centralwidget)
+        self.label_7.setObjectName(u"label_7")
+
+        self.horizontalLayout_7.addWidget(self.label_7)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_7)
+
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label = QLabel(self.centralwidget)
@@ -34,12 +51,10 @@ class Ui_WndMain(object):
 
         self.horizontalLayout.addWidget(self.edt_hwnd)
 
-        self.btn_attach = QToolButton(self.centralwidget)
-        self.btn_attach.setObjectName(u"btn_attach")
-        self.btn_attach.setMinimumSize(QSize(45, 35))
-        self.btn_attach.setMaximumSize(QSize(45, 35))
+        self.checkBox_3 = QCheckBox(self.centralwidget)
+        self.checkBox_3.setObjectName(u"checkBox_3")
 
-        self.horizontalLayout.addWidget(self.btn_attach)
+        self.horizontalLayout.addWidget(self.checkBox_3)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -141,8 +156,10 @@ class Ui_WndMain(object):
 
     def retranslateUi(self, WndMain):
         WndMain.setWindowTitle(QCoreApplication.translate("WndMain", u"DC Reserve ToolKit", None))
-        self.label.setText(QCoreApplication.translate("WndMain", u"\u7a97\u53e3\u53e5\u67c4", None))
         self.btn_attach.setText("")
+        self.label_7.setText(QCoreApplication.translate("WndMain", u"-- \u6309\u4e0b\u62d6\u52a8\u5230\u6307\u5b9a\u7a97\u53e3 --", None))
+        self.label.setText(QCoreApplication.translate("WndMain", u"\u7a97\u53e3\u53e5\u67c4", None))
+        self.checkBox_3.setText(QCoreApplication.translate("WndMain", u"16\u8fdb\u5236", None))
         self.label_2.setText(QCoreApplication.translate("WndMain", u"\u7a97\u53e3\u6807\u9898", None))
         self.label_3.setText(QCoreApplication.translate("WndMain", u"\u7a97\u53e3\u7c7b\u540d", None))
         self.label_4.setText(QCoreApplication.translate("WndMain", u"\u8fdb\u7a0bID(PID)", None))
