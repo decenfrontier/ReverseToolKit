@@ -17,7 +17,7 @@ class Ui_WndMain(object):
     def setupUi(self, WndMain):
         if not WndMain.objectName():
             WndMain.setObjectName(u"WndMain")
-        WndMain.resize(274, 264)
+        WndMain.resize(299, 264)
         self.centralwidget = QWidget(WndMain)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -36,6 +36,8 @@ class Ui_WndMain(object):
 
         self.btn_attach = QToolButton(self.centralwidget)
         self.btn_attach.setObjectName(u"btn_attach")
+        self.btn_attach.setMinimumSize(QSize(45, 35))
+        self.btn_attach.setMaximumSize(QSize(45, 35))
 
         self.horizontalLayout.addWidget(self.btn_attach)
 

@@ -23,6 +23,7 @@ class WndMain(QMainWindow, Ui_WndMain):
     def init_widgets(self):
         self.btn_attach.__class__ = AttachButton
         self.btn_attach.setText('🔍')
+        self.btn_attach.setFont(QFont('Segoe UI', 15))
 
     def init_sig_slots(self):
         ...
