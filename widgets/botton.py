@@ -1,14 +1,15 @@
 import os
 from PySide2.QtWidgets import QPushButton
 from PySide2.QtGui import QMouseEvent
-from PySide2.QtCore import Qt
+from PySide2.QtCore import Qt, Signal
 from memwin import XWinAPI, XWinCon
 from ctypes import wintypes
 
+import settings
+
 
 class AttachButton(QPushButton):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    hwnd = 0
     
     def mousePressEvent(self, event: QMouseEvent):
         if event.button() == Qt.LeftButton:
@@ -21,11 +22,13 @@ class AttachButton(QPushButton):
         super().mouseReleaseEvent(event)
 
     def mouseMoveEvent(self, e: QMouseEvent):
-        print(f'x:{e.globalX()}, y:{e.globalY()}')
         # 获取鼠标指向的窗口句柄
         x, y = e.globalX(), e.globalY()
         hwnd = XWinAPI.WindowFromPoint(wintypes.POINT(x, y))
-        print(f'hwnd:{hwnd}')
+        hwnd = int(hwnd)
+        if hwnd != self.hwnd:
+            self.hwnd = hwnd
+            settings.wnd_main.sig_hwnd_changed.emit(hwnd)
         super().mouseMoveEvent(e)
 
     def on_btn_attach_pressed(self):

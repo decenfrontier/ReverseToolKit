@@ -1,21 +1,24 @@
 import json
-import os, sys
+import os
 
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from memwin import *
+import win32gui
 
 from ui.wnd_main import Ui_WndMain
 from widgets.botton import AttachButton
 
 
+
 class WndMain(QMainWindow, Ui_WndMain):
+    sig_hwnd_changed = Signal(int)
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
         self.config_path = os.path.join(os.getenv('APPDATA'), 'config.json')
-        
+        self.hwnd_str = ''
         self.init_widgets()
         self.read_config()
         self.init_sig_slots()
@@ -26,11 +29,29 @@ class WndMain(QMainWindow, Ui_WndMain):
         self.btn_attach.setFont(QFont('Segoe UI', 15))
 
     def init_sig_slots(self):
-        ...
+        self.sig_hwnd_changed.connect(self.on_hwnd_changed)
+        self.chk_hwnd_hex.stateChanged.connect(self.on_chk_hwnd_hex_changed)
 
+    def on_hwnd_changed(self, hwnd: int):
+        if self.chk_hwnd_hex.isChecked():
+            self.hwnd_str = hex(hwnd)
+            print(f'self.hwnd: {self.hwnd_str}')
+        else:
+            self.hwnd_str = str(hwnd)
+        window_title = win32gui.GetWindowText(hwnd)
+        window_class = win32gui.GetClassName(hwnd)
+        self.edt_hwnd.setText(self.hwnd_str)
+        self.edt_wnd_title.setText(window_title)
+        self.edt_wnd_class.setText(window_class)
+
+    def on_chk_hwnd_hex_changed(self, state: int):
+        if state == Qt.Checked:
+            self.edt_hwnd.setText(hex(int(self.edt_hwnd.text())))
+        else:
+            self.edt_hwnd.setText(str(int(self.edt_hwnd.text(), 16)))
+    
     def closeEvent(self, event: QCloseEvent) -> None:
         self.save_config()
-        
         return super().closeEvent(event)
     
     def save_config(self):
