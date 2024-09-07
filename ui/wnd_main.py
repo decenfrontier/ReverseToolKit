@@ -26,6 +26,7 @@ class Ui_WndMain(object):
         self.horizontalLayout_8 = QHBoxLayout()
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setSpacing(3)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.btn_attach = QToolButton(self.centralwidget)
         self.btn_attach.setObjectName(u"btn_attach")
@@ -39,14 +40,15 @@ class Ui_WndMain(object):
 
         self.horizontalLayout_7.addWidget(self.label_7)
 
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_7.addItem(self.horizontalSpacer)
+
 
         self.horizontalLayout_8.addLayout(self.horizontalLayout_7)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_8.addItem(self.horizontalSpacer)
-
         self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setSpacing(3)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
@@ -55,7 +57,8 @@ class Ui_WndMain(object):
 
         self.edt_hwnd = QLineEdit(self.centralwidget)
         self.edt_hwnd.setObjectName(u"edt_hwnd")
-        self.edt_hwnd.setMaximumSize(QSize(100, 16777215))
+        self.edt_hwnd.setMinimumSize(QSize(66, 0))
+        self.edt_hwnd.setMaximumSize(QSize(66, 16777215))
 
         self.horizontalLayout.addWidget(self.edt_hwnd)
 
@@ -86,6 +89,7 @@ class Ui_WndMain(object):
         self.edt_wnd_title = QLineEdit(self.tab)
         self.edt_wnd_title.setObjectName(u"edt_wnd_title")
         self.edt_wnd_title.setReadOnly(True)
+        self.edt_wnd_title.setClearButtonEnabled(False)
 
         self.horizontalLayout_6.addWidget(self.edt_wnd_title)
 
@@ -157,11 +161,11 @@ class Ui_WndMain(object):
 
         self.horizontalLayout_2.addWidget(self.label_6)
 
-        self.edt_hmodule = QLineEdit(self.tab)
-        self.edt_hmodule.setObjectName(u"edt_hmodule")
-        self.edt_hmodule.setReadOnly(True)
+        self.edt_exe_path = QLineEdit(self.tab)
+        self.edt_exe_path.setObjectName(u"edt_exe_path")
+        self.edt_exe_path.setReadOnly(True)
 
-        self.horizontalLayout_2.addWidget(self.edt_hmodule)
+        self.horizontalLayout_2.addWidget(self.edt_exe_path)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -173,11 +177,11 @@ class Ui_WndMain(object):
 
         self.horizontalLayout_11.addWidget(self.label_9)
 
-        self.edt_hmodule_2 = QLineEdit(self.tab)
-        self.edt_hmodule_2.setObjectName(u"edt_hmodule_2")
-        self.edt_hmodule_2.setReadOnly(True)
+        self.edt_wnd_size = QLineEdit(self.tab)
+        self.edt_wnd_size.setObjectName(u"edt_wnd_size")
+        self.edt_wnd_size.setReadOnly(True)
 
-        self.horizontalLayout_11.addWidget(self.edt_hmodule_2)
+        self.horizontalLayout_11.addWidget(self.edt_wnd_size)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_11)
@@ -189,11 +193,11 @@ class Ui_WndMain(object):
 
         self.horizontalLayout_12.addWidget(self.label_10)
 
-        self.edt_hmodule_3 = QLineEdit(self.tab)
-        self.edt_hmodule_3.setObjectName(u"edt_hmodule_3")
-        self.edt_hmodule_3.setReadOnly(True)
+        self.edt_client_size = QLineEdit(self.tab)
+        self.edt_client_size.setObjectName(u"edt_client_size")
+        self.edt_client_size.setReadOnly(True)
 
-        self.horizontalLayout_12.addWidget(self.edt_hmodule_3)
+        self.horizontalLayout_12.addWidget(self.edt_client_size)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_12)
@@ -281,11 +285,11 @@ class Ui_WndMain(object):
         self.label_5.setText(QCoreApplication.translate("WndMain", u"\u7ebf\u7a0bID(TID)", None))
         self.chk_tid_hex.setText(QCoreApplication.translate("WndMain", u"16\u8fdb\u5236", None))
         self.label_6.setText(QCoreApplication.translate("WndMain", u"\u6a21\u5757\u8def\u5f84", None))
-        self.edt_hmodule.setText("")
+        self.edt_exe_path.setText("")
         self.label_9.setText(QCoreApplication.translate("WndMain", u"\u7a97\u53e3\u5927\u5c0f", None))
-        self.edt_hmodule_2.setText("")
+        self.edt_wnd_size.setText("")
         self.label_10.setText(QCoreApplication.translate("WndMain", u"\u5ba2\u6237\u533a\u5927\u5c0f", None))
-        self.edt_hmodule_3.setText("")
+        self.edt_client_size.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("WndMain", u"\u7a97\u53e3\u4fe1\u606f", None))
         self.pushButton.setText(QCoreApplication.translate("WndMain", u"Call", None))
         self.pushButton_2.setText(QCoreApplication.translate("WndMain", u"\u7533\u8bf7\u5185\u5b58", None))
