@@ -36,6 +36,7 @@ class WndMain(QMainWindow, Ui_WndMain):
         self.btn_attach.setText('🔍')
         self.btn_attach.setFont(QFont('Segoe UI', 15))
         self.edt_hwnd.selectAll()
+        self.tabWidget.setCurrentIndex(0)
 
     def init_sig_slots(self):
         self.sig_hwnd_changed.connect(self.on_hwnd_changed)

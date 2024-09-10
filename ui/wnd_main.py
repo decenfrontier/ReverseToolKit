@@ -12,12 +12,17 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
+import main_rc
 
 class Ui_WndMain(object):
     def setupUi(self, WndMain):
         if not WndMain.objectName():
             WndMain.setObjectName(u"WndMain")
         WndMain.resize(378, 391)
+        icon = QIcon()
+        icon.addFile(u":/hacker.ico", QSize(), QIcon.Normal, QIcon.Off)
+        WndMain.setWindowIcon(icon)
+        WndMain.setWindowOpacity(0.980000000000000)
         self.centralwidget = QWidget(WndMain)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
@@ -223,6 +228,7 @@ class Ui_WndMain(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
         self.pushButton.setSizePolicy(sizePolicy)
+        self.pushButton.setMinimumSize(QSize(80, 0))
 
         self.verticalLayout_3.addWidget(self.pushButton)
 
@@ -230,6 +236,7 @@ class Ui_WndMain(object):
         self.pushButton_2.setObjectName(u"pushButton_2")
         sizePolicy.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
         self.pushButton_2.setSizePolicy(sizePolicy)
+        self.pushButton_2.setMinimumSize(QSize(80, 0))
 
         self.verticalLayout_3.addWidget(self.pushButton_2)
 
@@ -266,7 +273,7 @@ class Ui_WndMain(object):
 
         self.retranslateUi(WndMain)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(WndMain)

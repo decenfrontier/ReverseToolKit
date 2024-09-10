@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/">
+    <file>hacker.ico</file>
+  </qresource>
+</RCC>

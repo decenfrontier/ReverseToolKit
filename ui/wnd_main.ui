@@ -13,6 +13,13 @@
   <property name="windowTitle">
    <string>DC Reserve ToolKit</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../res/main.qrc">
+    <normaloff>:/hacker.ico</normaloff>:/hacker.ico</iconset>
+  </property>
+  <property name="windowOpacity">
+   <double>0.980000000000000</double>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <property name="spacing">
@@ -289,6 +296,12 @@
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>Call</string>
               </property>
@@ -301,6 +314,12 @@
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>申请内存</string>
@@ -337,6 +356,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="../res/main.qrc"/>
+ </resources>
  <connections/>
 </ui>

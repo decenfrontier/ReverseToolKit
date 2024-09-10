@@ -6,6 +6,7 @@ from memwin import XWinAPI, XWinCon
 from ctypes import wintypes
 
 import settings
+from utils.path import resource_path
 
 
 class AttachButton(QPushButton):
@@ -34,9 +35,8 @@ class AttachButton(QPushButton):
     def on_btn_attach_pressed(self):
         print('on_btn_attach_pressed')
         # 按下后 改变鼠标图标
-        path = os.path.join(os.getcwd(), 'ui', 'search.cur')
         hCursorNew = XWinAPI.LoadImage(
-            None, path, XWinCon.IMAGE_CURSOR, 24, 24, XWinCon.LR_LOADFROMFILE)
+            None, resource_path('res/search.cur'), XWinCon.IMAGE_CURSOR, 24, 24, XWinCon.LR_LOADFROMFILE)
         print(f'hCursorNew: {hCursorNew}')
         if hCursorNew:
             self.setText('     ')
@@ -45,9 +45,8 @@ class AttachButton(QPushButton):
     def on_btn_attach_released(self):
         print('on_btn_attach_released')
         # 监控鼠标松开 恢复鼠标默认图标
-        path = os.path.join(os.getcwd(), 'ui', 'aero_arrow.cur')
         hCursor = XWinAPI.LoadImage(
-            None, path, XWinCon.IMAGE_CURSOR, 32, 32, XWinCon.LR_LOADFROMFILE)
+            None, resource_path('res/aero_arrow.cur'), XWinCon.IMAGE_CURSOR, 32, 32, XWinCon.LR_LOADFROMFILE)
         if hCursor:
             self.setText('🔍')
             XWinAPI.SetSystemCursor(hCursor, XWinCon.OCR_NORMAL)
